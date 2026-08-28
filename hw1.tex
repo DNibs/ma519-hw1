@@ -24,6 +24,13 @@ to six kids.
 What is the probability that
 Two kids get two cookies each, and another three get one each.
 
+\subsection*{Answer}
+
+The probability of this event happening is 0 since it is outside of the sample space.
+For two kids to get two cookies each, and another three to each get one would require seven cookies.
+However, this problem requires that a total of six cookies get distributed.
+Therefore, this event does not exist in the sample space, and therefore has 0 probability of occuring.
+
 \section*{Handout 1, Question 8 (Andre)}
 
 If \(n\) balls are placed completely at random into \(n\) cells,
@@ -38,6 +45,39 @@ divided at random into two groups of 100 people.
 Find the probability that each group has an equal number
 of boys and girls. Replace 100 by \(2N\) and derive a general
 formula.
+
+\subsection*{Answer}
+
+The sample space more than 100, because it must include different combinations 
+of which boys and girls go into each group.
+Think of it like a coin toss per boy and girl. This is \(2^{200}\). 
+So, what is number of EXACTLY 100 H tosses out of 200 total tosses?
+\(\binom{200}{100}\).
+That is the sample space.
+
+\[\Omega = \binom{200}{100}\].
+
+Our event \(A\) is the event in which exactly 50 boys are in Group A.
+The count of this is \(\binom{100}{50}\).
+However, we also must choose WHICH 50 girls end up in group A.
+This also ends up with a count of \(\binom{100}{50}\).
+Therefore, the event count is \(\binom{100}{50}^2\).
+
+\[\left|A\right| = \binom{100}{50}^2\].
+
+\[P(A) = \frac{\binom{100}{50}^2}{\binom{200}{100}} = 
+\frac{(\frac{100!}{50!50!})^2}{\frac{200!}{100!100!}} =
+\frac{(100!)^4}{200!(50!)^4} =
+\frac{(51*52*...*100)^4}{200!} =
+0.1128
+\].
+
+
+The probability is 11.28\%. 
+
+We can generalize this as:
+
+\[P(A) = \frac{\binom{2N}{N}^2}{\binom{4N}{2N}}\]
 
 \section*{Handout 1, Question 29 (Andre)}
 
