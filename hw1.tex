@@ -12,7 +12,7 @@
 
     {\Large\bfseries David Niblick}
 
-    {\Large\bfseries Andre}
+    {\Large\bfseries Andre Salgado}
     
     {\Large\bfseries Due 3SEP2026}
 \end{center}
@@ -37,6 +37,87 @@ If \(n\) balls are placed completely at random into \(n\) cells,
 find the probability that exactly one cell remains empty.
 Next, find the limit of this probability as \(n\) tends to
 infinity rigorously.
+
+\subsection*{Answer}
+
+The probability that exactly one cell remains empty if \(n\) balls are placed completely at random into \(n\) cells is equivalent to one cell receiving 2 balls and \(n-2\) cells receiving 1 ball each. That probability is 
+
+\begin{align*}
+    \frac{
+    \binom{n}{1} \binom{n}{2}\binom{n-1}{n-2}(n-2)!
+    }
+    {n^n}
+\end{align*}
+
+Which simplifies to
+\begin{align*}
+    \frac{n(n-1)n!}{2n^n
+    }
+\end{align*}
+
+The limit of this probability as \(n\) tends to infinity is evaluated using Stirling's approximation.
+
+\begin{align*}
+    \lim_{n\to \infty} \frac{n(n-1)\sqrt{2\pi n }(\frac{n}{e})^n}{2n^n}
+\end{align*}
+
+Simplifying
+\begin{align*}
+   \frac{\sqrt{2\pi}}{2}(\lim_{n\to \infty} \frac{n^{5/2}}{e^n} -  \lim_{n\to \infty} \frac{n^{3/2}}{e^n})
+\end{align*}
+
+Evaluating the limits yields indefinite forms. 
+
+\begin{align*}
+   \frac{\sqrt{2\pi}}{2}( \frac{\lim_{n\to \infty} n^{5/2}}{\lim_{n\to \infty}e^n} - \frac{\lim_{n\to \infty}n^{3/2}}{\lim_{n\to \infty}e^n}) = \frac{\sqrt{2\pi}}{2}(\frac{\infty}{\infty} - \frac{\infty}{\infty})
+\end{align*}
+
+
+Applying L'Hopital's rule.
+
+\begin{align*}
+   \frac{\sqrt{2\pi}}{2}( \frac{5}{2}\lim_{n\to \infty} \frac{n^{3/2}}{e^n} -  \frac{3}{2}\lim_{n\to \infty} \frac{n^{1/2}}{e^n})
+\end{align*}
+
+The limits are still in indefinite form. Applying L'Hopital's rule again. 
+
+\begin{align*}
+   \frac{\sqrt{2\pi}}{2}( \frac{15}{4}\lim_{n\to \infty} \frac{n^{1/2}}{e^n} -  \frac{3}{4}\lim_{n\to \infty} \frac{n^{-1/2}}{e^n})
+\end{align*}
+
+Evaluating the second limit. 
+
+\begin{align*}
+    \frac{3}{4}\lim_{n\to \infty} \frac{n^{-1/2}}{e^n} 
+    &= 
+    \frac{3}{4}\lim_{n\to \infty} \frac{1}{\sqrt{n}e^n}\\
+    &=\frac{3}{4} \frac{\lim_{n\to \infty}1}{\lim_{n\to \infty} \sqrt{n}e^n}\\
+    &=\frac{3}{4} \cdot \frac{1}{\infty}\\
+    &=0
+\end{align*}
+
+The second limit is 0. The first limit is still in indefinite form. Applying L'Hopital's rule again. 
+
+\begin{align*}
+   \frac{\sqrt{2\pi}}{2}( \frac{15}{8}\lim_{n\to \infty} \frac{n^{-1/2}}{e^n})
+\end{align*}
+
+Evaluating the limit.
+\begin{align*}
+    \lim_{n\to \infty} \frac{n^{-1/2}}{e^n} &=\lim_{n\to \infty} \frac{1}{\sqrt{n}e^n}\\
+    &= \frac{\lim_{n \to \infty} 1}{\lim_{n \to \infty} \sqrt{n}e^n}\\
+    &= \frac{1}{\infty}\\
+    &=0
+\end{align*}
+
+Substituting the limits into the original equation.
+\begin{align*}
+   \frac{\sqrt{2\pi}}{2}(\lim_{n\to \infty} \frac{n^{5/2}}{e^n} -  \lim_{n\to \infty} \frac{n^{3/2}}{e^n}) = \frac{\sqrt{2\pi}}{2}(0 -  0) = 0
+\end{align*}
+
+
+Therefore, the limit of this probability as \(n\) tends to infinity is 0. 
+
 
 \section*{Handout 1, Question 10 (David)}
 
@@ -87,10 +168,48 @@ Six people are to be seated around a circular table.
 
 What is the total number of ways that they can be seated?
 
+\subsection*{Answer}
+
+If they were seated in a line, there would be \(6!\) possible orderings.
+
+\begin{align*}
+    6! = 6\cdot5\cdot4\cdot3\cdot2\cdot1=720
+\end{align*}
+
+However, since they are sitting in a circular table, there are repeated orderings due to the invariance of rotational shifts. Due to this, we arbitrarily select the first person to sit anywhere, then find all the possible orderings relative to the first person. 
+
+\begin{align*}
+    1\cdot5\cdot4\cdot3\cdot2\cdot1=5!=120
+\end{align*}
+
+Therefore, there are $120$ possible orderings to seat six people around a circular table. 
+
+
 \subsection*{b)}
 
 What is the total number of ways that they can be seated
 if two people \(X\) and \(Y\) refuse to sit next to each other?
+
+\subsection*{Answer}
+ First arbitrarily seat X in a position. Then, seat each neighbor of X given the constraint. 
+
+ \begin{align*}
+     1\cdot4\cdot3 = 12
+ \end{align*}
+
+Then we have three spots left with three possible people, one of which is \(Y\).
+\begin{align*}
+    3!=3\cdot2\cdot1=6
+\end{align*}
+
+Multiplying the possible neighbors of \(X\) with the possible positions of \(Y\).
+
+\begin{align*}
+    12\cdot 6 = 72
+\end{align*}
+
+Therefore, there are 72 possible ways to seat 6 people around a circular table if two people \(X\) and \(Y\) refuse to sit next to each other. 
+
 
 \section*{Handout 1, Question 31 (David)}
 
@@ -143,6 +262,10 @@ Describe how you would explain to a layman the meaning of the following statemen
     cannot tell what will happen to any individual among them.
 \end{quote}
 
+\subsection*{Answer}
+
+
+
 \section*{Parzen, Page 16, Question 4.1 (David)}
 
 An experiment consists of drawing 3 radio tubes from a lot and testing them for some characteristic 
@@ -174,17 +297,62 @@ Let \(A\) and \(B\) be 2 events on a probability space. In terms of \(P[A]\), \(
 
 for \(k = 0, 1, 2\), \(P[\text{exactly } k \text{ of the events, } A \text{ and } B, \text{ occur}]\),
 
+\subsection*{Answer}
+
+\subsubsection*{$\mathbf{k=0}$}
+
+
+\begin{align*}
+    P[\text{exactly } 0 \text{ of the events, } A \text{ and } B \text{, occur}] &= 1 - (P[A] + P[B] - P[AB])\\
+    &= 1-P[A]-P[B]+P[AB]
+\end{align*}
+
+\subsubsection*{$\mathbf{k=1}$}
+
+\begin{align*}
+    P[\text{exactly } 1 \text{ of the events, } A \text{ and } B \text{, occur}] &= P[A] + P[B] - 2P[AB])
+\end{align*}
+
+\subsubsection*{$\mathbf{k=2}$}
+
+\begin{align*}
+    P[\text{exactly } 2 \text{ of the events, } A \text{ and } B \text{, occur}] &= P[AB])
+\end{align*}
+
+
 \subsection*{(ii)}
 
 for \(k = 0, 1, 2\), \(P[\text{at least } k \text{ of the events, } A \text{ and } B, \text{ occur}]\),
+
+\subsection*{Answer}
+
+\subsubsection*{$\mathbf{k=0}$}
+\begin{align*}
+    P[\text{at least } 0 \text{ of the events, } A \text{ and } B \text{, occur}] &= 1
+\end{align*}
+
+\subsubsection*{$\mathbf{k=1}$}
+\begin{align*}
+    P[\text{at least } 1 \text{ of the events, } A \text{ and } B \text{, occur}] &= P[A] + P[B] - P[AB]
+\end{align*}
+
+\subsubsection*{$\mathbf{k=2}$}
+\begin{align*}
+    P[\text{at least } 2 \text{ of the events, } A \text{ and } B \text{, occur}] &= P[AB]
+\end{align*}
+
 
 \subsection*{(iii)}
 
 for \(k = 0, 1, 2\), \(P[\text{at most } k \text{ of the events, } A \text{ and } B, \text{ occur}]\),
 
+\subsubsection*{Answer}
+
 \subsection*{(iv)}
 
 \(P[A \text{ occurs and } B \text{ does not occur}]\)
+
+\subsubsection*{Answer}
 
 \section*{Parzen, Page 22-23, Question 5.10 (David)}
 
@@ -211,5 +379,44 @@ no more than \(k\)
 Certain data obtained from a study of a group of 1000 subscribers to a certain magazine relating to their sex, marital status, and education were reported as follows:
 312 males, 470 married, 525 college graduates, 42 male college graduates, 147 married college graduates, 86 married males, and 25 married male college graduates.
 Show that the numbers reported in the various groups are not consistent.
+
+\subsection*{Answer}
+
+For the sake of contradiction let us assume that the numbers reported are consistent. Then the size of any subset (or union of subsets) must be less than or equal to the size of the set ($N = 1000$). Therefore, the size of the union of the subsets male, married, and college graduate should be less than $1000$.
+
+
+\subsubsection*{Married or College Graduate: $M\cup C$}
+
+\begin{align*}
+    M \cup C &= M + C - M\cap C\\
+    &= 470 + 525 -147\\
+    &= 848
+\end{align*}
+
+\subsubsection*{Male or College Graduate: $m\cup C$}
+
+\begin{align*}
+    m \cup C &= m + C - m\cap C\\
+    &= 312 + 525 -42\\
+    &= 795
+\end{align*}
+
+\subsubsection*{Male or Married: $m \cup M$}
+
+\begin{align*}
+    m \cup M &= m + M - m\cap M\\
+    &= 312 + 470 -86\\
+    &= 696
+\end{align*}
+
+\subsubsection*{Male or Married or College Graduate: $m\cup M \cup C$}
+
+\begin{align*}
+    m\cup M \cup C &= m + M + C - m\cap M - m\cap C - M\cap C + m \cap M \cap C\\
+    &= 312 + 470 + 525 - 42 - 147 - 86 +25\\
+    &= 1057
+\end{align*}
+
+Since, the number of the union is larger than the sample size, the numbers reported are not consistent. 
 
 \end{document}
