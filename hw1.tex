@@ -264,7 +264,7 @@ Describe how you would explain to a layman the meaning of the following statemen
 
 \subsection*{Answer}
 
-
+While an insurer may not know what will happen to a specific person they are able to price them a policy that will most likely make them profitable. They do this by comparing the individual to the history of the population. Using this they can find how likely it is that a person will be in an accident and price accordingly. Even if they are wrong for that specific person, if they have enough customers their predicted likelihood of accidents will be very accurate. 
 
 \section*{Parzen, Page 16, Question 4.1 (David)}
 
@@ -402,7 +402,8 @@ for \(k = 0, 1, 2\), \(P[\text{at least } k \text{ of the events, } A \text{ and
 
 \subsubsection*{$\mathbf{k=0}$}
 \begin{align*}
-    P[\text{at least } 0 \text{ of the events, } A \text{ and } B \text{, occur}] &= 1
+    P[\text{at least } 0 \text{ of the events, } A \text{ and } B \text{, occur}] &= (1-P[A]-P[B] +P[AB]) + (P[A] + P[B] -2P[AB]) + (P[AB])\\
+    &= 1
 \end{align*}
 
 \subsubsection*{$\mathbf{k=1}$}
@@ -422,11 +423,34 @@ for \(k = 0, 1, 2\), \(P[\text{at most } k \text{ of the events, } A \text{ and 
 
 \subsubsection*{Answer}
 
+\subsubsection*{$\mathbf{k=0}$}
+
+\begin{align*}
+    P[\text{at most } 0 \text{ of the events, } A \text{ and } B \text{, occur}] &= 1-(P[A] + P[B] -P[AB])\\
+    &= 1- P[A] - P[B] + P[AB]
+\end{align*}
+
+\subsubsection*{$\mathbf{k=1}$}
+\begin{align*}
+    P[\text{at most } 1 \text{ of the events, } A \text{ and } B \text{, occur}] &= (1-P[A] -P[B] + P[AB]) + (P[A] +P[B] -2P[AB])\\
+    &= 1-P[AB]
+\end{align*}
+\subsubsection*{$\mathbf{k=2}$}
+\begin{align*}
+    P[\text{at most } 2 \text{ of the events, } A \text{ and } B \text{, occur}] &= (1-P[AB]) + (P[AB])\\
+    &= 1
+\end{align*}
+
+
 \subsection*{(iv)}
 
 \(P[A \text{ occurs and } B \text{ does not occur}]\)
 
 \subsubsection*{Answer}
+
+\begin{align*}
+    P[A \text{ occurs and } B \text{ does not occur}] = P[A] - P[AB]
+\end{align*}
 
 \section*{Parzen, Page 22-23, Question 5.10 (David)}
 
