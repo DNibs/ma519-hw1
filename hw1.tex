@@ -464,6 +464,7 @@ Find, for \(k = 0, 1, 2, 3\), the number of men who suffered these injuries:
 
 exactly \(k\)
 
+
 \subsection*{(ii)}
 
 at least \(k\)
@@ -471,6 +472,128 @@ at least \(k\)
 \subsection*{(iii)}
 
 no more than \(k\)
+
+
+
+\subsection*{Answer}
+
+A = Lost an eye = 90
+
+B = Lost an arm = 90
+
+C = Lost a leg = 90
+
+AB = Lost an eye and an arm = 30
+
+AC = Lost an eye and a leg = 30
+
+BC = Lost an arm and a leg = 30
+
+ABC = Lost an arm, a leg, and an eye = 10
+
+In these answers, we must account for double counts using Inclusion-Exclusion Formula
+
+i, k=0:
+The number of soldiers that suffered no injury.
+\[
+Answer = \Omega - A - B - C + AB + AC + BC - ABC = 270 - 90 - 90 - 90 + 30 + 30 + 30 - 10 = 80 
+\]
+
+i, k=1:
+
+The number of soldiers that suffered exactly one injury.
+\[
+Answer = A + B + C - 2AB - 2AC - 2BC + 3ABC = 90 + 90 + 90 - 2*30 - 2*30 - 2*30 + 3*10 = 120 
+\]
+
+i, k=2:
+
+The number of soldiers that suffered exactly two injuries.
+
+\[
+Answer = AB + AC + BC - 3ABC = 30 + 30 + 30 - 3*10 = 60
+\]
+
+i, k=3:
+
+The number of soldiers that suffered exactly three injuries.
+
+\[
+Answer = ABC = 10
+\]
+
+
+
+ii, k=0:
+
+The number of soldiers that suffered at least zero injuries.
+(Note - since all soldiers have, at a minimum, zero injuries, this includes the whole sample space.)
+
+\[
+Answer = \left|\Omega\right| = 270
+\]
+
+ii, k=1:
+
+The number of soldiers that suffered at least 1 injury.
+
+\[
+Answer = A + B + C - AB - AC - BC + ABC = 90 + 90 + 90 - 30 - 30 - 30 + 10 = 190 
+\]
+
+
+ii, k=2: 
+
+The number of soldiers that suffered at least 2 injuries.
+
+\[
+Answer = AB + AC + BC - 2 ABC = 30 + 30 + 30 - 2*10 = 70
+\]
+
+
+ii, k=3:
+The number of soldiers that suffered at least 3 injuries.
+
+\[
+Answer = ABC = 10
+\]
+
+
+
+iii, k=0:
+
+The number of soldiers that no more than 0 injuries.
+(Note - this is the same as suffered exactly 0 injuries from above.)
+\[
+Answer = \left|\Omega\right| - A - B - C + AB + AC + BC - ABC = 270 - 90 - 90 - 90 + 30 + 30 + 30 - 10 = 80
+\]
+
+iii, k=1:
+The number of soldiers with no more than one injury.
+(Note - this should equal the number of those with exactly 0 injuries plus those with exactly 1 injury.)
+\[
+Answer = \left|\Omega\right| - AB - AC - BC + 2ABC = 270 - 30 - 30 - 30 + 20 = 200
+\]
+
+
+iii, k=2:
+
+The number of soldiers with no more than two injuries.
+\[
+Answer = \left|\Omega\right| - ABC = 260
+\]
+
+
+
+iii, k=3:
+
+The number of soldiers with no more than three injuries.
+(Note - since all of the soldiers suffered only up to three injuries, this will include the whole sample space.)
+\[
+Answer = \left|\Omega\right| = 270
+\]
+
+
 
 \section*{Parzen, Page 22-23, Question 5.11 (Andre)}
 
