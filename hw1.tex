@@ -22,14 +22,32 @@
 Six cookies are distributed completely at random, one by one,
 to six kids.
 What is the probability that
-Two kids get two cookies each, and another three get one each.
+Two kids get two cookies each, and another two get one each.
 
 \subsection*{Answer}
 
-The probability of this event happening is 0 since it is outside of the sample space.
-For two kids to get two cookies each, and another three to each get one would require seven cookies.
-However, this problem requires that a total of six cookies get distributed.
-Therefore, this event does not exist in the sample space, and therefore has 0 probability of occuring.
+Our sample space is defined by the number of ways six cookies can be distributed to 
+the children.
+Since there are six cookies (ie six choices to make), and six possible recipients at 
+each choice, the total count of our sample space is \(\left|\Omega\right|=6^6\).
+
+Now we define the count of our event.
+The first four cookies will go to kids that don't yet have a cookie, then the last two will double up
+among the first four that already received a cookie.
+
+\[
+A = \binom{6}{4} \binom{4}{2} = \frac{6!}{4! 2!} \frac{4!}{2! 2!}
+= \frac{5 \cdot 6}{2} \frac{3 \cdot 4}{2} 
+= 15 \cdot 6 = 90
+\]
+
+Therefore, we have 
+
+\[
+P(A) = \frac{90}{6^6} = \frac{15}{6^5}
+\]
+
+
 
 \section*{Handout 1, Question 8 (Andre)}
 
