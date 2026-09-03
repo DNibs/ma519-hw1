@@ -29,25 +29,35 @@ Two kids get two cookies each, and another two get one each.
 Our sample space is defined by the number of ways six cookies can be distributed to 
 the children.
 Since there are six cookies (ie six choices to make), and six possible recipients at 
-each choice, the total count of our sample space is \(\left|\Omega\right|=6^6\).
+each choice, the total count of our sample space is \(\left|\Omega\right|=6^6 = 46656\).
 
 Now we define the count of our event.
-The first four cookies will go to kids that don't yet have a cookie, then the last two will double up
-among the first four that already received a cookie.
+First, we choose our two kids (of six) that get two cookies each, and then two kids (of four) that get one cookie each.
+\(\binom{6}{2} \binom{4}{2}\).
+
+Then we must count the number of ways those six cookies can be distributed among the four chosen kids.
+It breaks down as 
+two cookies chosen for one kid, two (of four) cookies chosen for another kid, then one cookie (of two), 
+and finally the last cookie to the fourth kid. 
+\(\binom{6}{2} \binom{4}{2} \binom{2}{1} \binom{1}{1}\).
+
+
 
 \[
-A = \binom{6}{4} \binom{4}{2} = \frac{6!}{4! 2!} \frac{4!}{2! 2!}
-= \frac{5 \cdot 6}{2} \frac{3 \cdot 4}{2} 
-= 15 \cdot 6 = 90
+A = \binom{6}{4} \binom{4}{2} \binom{6}{2} \binom{4}{2} \binom{2}{1} \binom{1}{1}
+= 15 * 6 * 15 * 6 * 2 * 1 = 16200
 \]
 
 Therefore, we have 
 
 \[
-P(A) = \frac{90}{6^6} = \frac{15}{6^5} = 0.1929\%
+P(A) = \frac{16200}{46656} = 34.72\%
 \]
 
 
+As a note, in my original answer, I missed the fact that cookie order needs to be included in the count.
+I only included the choice of kids (\(\binom{6}{2} \binom{4}{2}\)), not the order of cookies.
+When checking with ChatGPT, it pointed out that mistake.
 
 \section*{Handout 1, Question 8 (Andre)}
 
